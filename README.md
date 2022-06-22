@@ -1,6 +1,6 @@
 # Python Library Template
 
-This doesn't do much on it's own, it's a reference for myself for future
+This doesn't do much on it's own, it's a reference for myself for future for how to build a python library.
 <br>
 
 ## Description
