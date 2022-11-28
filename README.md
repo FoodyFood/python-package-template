@@ -29,9 +29,8 @@ python -m venv .venv
 source .\.venv\scripts\activate
 pip install -r requirements.txt
 ```
-<br>
 
-## Build The WHL File
+## Building The WHL File
 
 To build the wheel you can eitehr do it manually by using these commands, or if you have `make` innstalled you can just `make build`.
 
