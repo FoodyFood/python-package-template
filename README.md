@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 ## Building The WHL File
 
-To build the wheel you can eitehr do it manually by using these commands, or if you have `make` innstalled you can just `make build`.
+To build the wheel you can either do it manually by using these commands, or if you have `make` innstalled you can just `make build`.
 
 ```bash
 rm -rf build *.egg-info
