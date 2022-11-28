@@ -31,7 +31,7 @@ pip install -r requirements.txt
 ```
 <br>
 
-## Build Thw WhL 
+## Build The WHL File
 
 To build the wheel you can eitehr do it manually by using these commands, or if you have `make` innstalled you can just `make build`.
 
