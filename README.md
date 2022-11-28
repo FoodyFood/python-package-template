@@ -31,5 +31,13 @@ pip install -r requirements.txt
 ```
 <br>
 
+## Build Thw WhL 
+
+To build the wheel you can eitehr do it manually by using these commands, or if you have `make` innstalled you can just `make build`.
+
+```bash
+rm -rf build *.egg-info
+python3 setup.py sdist bdist_wheel
+```
 
 
