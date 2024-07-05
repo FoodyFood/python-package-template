@@ -6,9 +6,9 @@ import os
 import sys
 
 
-# This code ensures we are using the local module, not the installed python_package when we import
-my_module_dir = os.path.abspath('')
-sys.path.insert(0, my_module_dir)
+# This ensures we are using the local python_package, not the installed python_package whl
+local_package_dir = os.path.abspath('')
+sys.path.insert(0, local_package_dir)
 
 # We ignore the wrong import position because the commands above must preceed them
 from python_package.sub_module_1.some_class import SomeClass # pylint: disable=wrong-import-position
