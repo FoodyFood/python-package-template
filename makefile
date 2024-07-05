@@ -1,3 +1,6 @@
+# Define a variable to store the version read from the VERSION file
+VERSION := $(shell cat VERSION)
+
 # Build a WHL from our module
 .PHONY: build
 build:
@@ -7,7 +10,7 @@ build:
 
 # Install the WHL we built
 install:
-	pip3 install ./dist/python_package-0.0.1-py3-none-any.whl
+	pip3 install ./dist/python_package-${VERSION}-py3-none-any.whl
 
 
 # Cleanup by uninstalling the WHL
