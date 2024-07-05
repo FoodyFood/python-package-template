@@ -28,6 +28,11 @@ source .\.venv\scripts\activate
 pip install -r requirements.txt
 ```
 
+## Running The Code Directly
+
+You can directly execute the python code by running `python3 ./python_package/main_module.py` in your terminal.
+
+
 ## Building The WHL File
 
 To build the wheel you can either do it manually by using these commands, or if you have `make` innstalled you can just `make build`.

@@ -2,9 +2,17 @@
     This is a sample python package.
 '''
 
+import os
 import sys
-from python_package.sub_module_1.some_class import SomeClass
-from python_package.sub_module_2.some_module import some_function
+
+
+# This code ensures we are using the local module, not the installed python_package when we import
+my_module_dir = os.path.abspath('')
+sys.path.insert(0, my_module_dir)
+
+# We ignore the wrong import position because the commands above must preceed them
+from python_package.sub_module_1.some_class import SomeClass # pylint: disable=wrong-import-position
+from python_package.sub_module_2.some_module import some_function # pylint: disable=wrong-import-position
 
 
 def welcome_text() -> str:
