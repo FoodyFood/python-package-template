@@ -3,6 +3,7 @@
 This doesn't do much on it's own, it's a reference for myself for future for how to build a python package.
 <br>
 
+
 ## Description
 
 Once you build this, it will create a dist folder containing a whl that you can install.
@@ -28,9 +29,12 @@ source .\.venv\scripts\activate
 pip install -r requirements.txt
 ```
 
+
 ## Running The Code Directly
 
 You can directly execute the python code by running `python3 ./python_package/main_module.py` in your terminal.
+
+Dont forget to run `pip install -r requirements.txt` beforehand.
 
 
 ## Building The WHL File
@@ -42,9 +46,15 @@ rm -rf build *.egg-info
 python3 setup.py sdist bdist_wheel
 ```
 
+
 ## Tests (PyTest)
 
 Running `pytest` from the root directory of this repository will run PyTest which will test the main module as well as the sub modules.
+
+
+## Test Coverage
+
+Coverage is 100% with 2 ignored functions, to run a coverage report run `coverage run -m pytest; coverage report` in your terminal.
 
 
 ## Linting (PyLint)

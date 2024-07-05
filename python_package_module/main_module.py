@@ -68,7 +68,7 @@ def main() -> None:
     print(some_function())
 
 
-def signal_handler(sig, frame): # pylint: disable=unused-argument
+def signal_handler(sig, frame): # pylint: disable=unused-argument # pragma: no cover
     '''
         If a user presses CTRL+C, this will catch it and exit gracefully without an error.
     '''
@@ -76,5 +76,5 @@ def signal_handler(sig, frame): # pylint: disable=unused-argument
     sys.exit(0)
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": # pragma: no cover
     main()

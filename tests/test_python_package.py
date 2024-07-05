@@ -2,7 +2,15 @@
     This tests functions in the main_module module
 '''
 
-from python_package_module.main_module import welcome_text, square
+from python_package_module.main_module import main, welcome_text, square
+
+
+def test_main() -> None:
+    '''
+        Testa the main function.
+    '''
+
+    assert main() is None
 
 
 def test_welcome_text() -> None:
