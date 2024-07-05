@@ -7,12 +7,12 @@ build:
 
 # Install the WHL we built
 install:
-	pip3 install ./dist/mylibrary-0.1-py3-none-any.whl
+	pip3 install ./dist/python_package-0.0.1-py3-none-any.whl
 
 
 # Cleanup by uninstalling the WHL
 uninstall:
-	pip3 uninstall -y mylibrary
+	pip3 uninstall -y python_package
 
 
 # Time saver
