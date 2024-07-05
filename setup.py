@@ -39,7 +39,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'python_package = python_package.main_module:main',
+            'python_package = python_package_module.main_module:main',
         ],
     },
     # package_data={

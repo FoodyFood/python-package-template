@@ -2,7 +2,7 @@
     This tests class methods in the sub_module_1 module
 '''
 
-from python_package.sub_module_1.some_class import SomeClass
+from python_package_module.sub_module_1.some_class import SomeClass
 
 
 def test_some_method_1() -> None:
