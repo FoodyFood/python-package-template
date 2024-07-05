@@ -7,7 +7,7 @@ class SomeClass:
         This is a class in the sub module.
     '''
 
-    def some_method(self) -> str:
+    def some_method_1(self) -> str:
         '''
             This is a method in the SomeClass class
             
@@ -18,4 +18,18 @@ class SomeClass:
                 str
         '''
 
-        return "The some_method Method Says Hello"
+        return "The some_method_1 Method Says Hello"
+
+
+    def some_method_2(self) -> str:
+        '''
+            This is a method in the SomeClass class
+            
+            Args:
+                None
+
+            Returns:
+                str
+        '''
+
+        return "The some_method_2 Method Says Hello"

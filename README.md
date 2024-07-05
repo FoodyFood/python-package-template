@@ -37,8 +37,13 @@ rm -rf build *.egg-info
 python3 setup.py sdist bdist_wheel
 ```
 
-## Tests
+## Tests (PyTest)
 
 Running `pytest` from the root directory of this repository will run PyTest which will test the main module as well as the sub modules.
+
+
+## Linting (PyLint)
+
+Running `pylint ./python_package` from the root directory of this repository will run PyLint which will lint the whole package.
 
 

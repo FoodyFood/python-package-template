@@ -58,8 +58,9 @@ def main() -> None:
     some_class: SomeClass = SomeClass()
 
 
-    # Use a method from our sub module 1 SomeClass class
-    print(some_class.some_method())
+    # Use the methods from our sub module 1 SomeClass class
+    print(some_class.some_method_1())
+    print(some_class.some_method_2())
 
 
     # Use a function from sub module 2
