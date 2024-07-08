@@ -59,6 +59,6 @@ Coverage is 100% with 2 ignored functions, to run a coverage report run `coverag
 
 ## Linting (PyLint)
 
-Running `pylint ./python_package` from the root directory of this repository will run PyLint which will lint the whole package.
+Running `pylint ./python_package_module` from the root directory of this repository will run PyLint which will lint the whole package.
 
 
