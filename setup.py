@@ -43,6 +43,6 @@ setup(
         ],
     },
     # package_data={
-    #     'nxcore': ['assets/*.yaml'],
+    #     'assets': ['assets/*.yaml'],
     # },
 )
