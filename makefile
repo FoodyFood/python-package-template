@@ -13,10 +13,14 @@ install:
 	pip3 install ./dist/python_package-${VERSION}-py3-none-any.whl
 
 
+run:
+	workspace_initializer
+
 # Cleanup by uninstalling the WHL
 uninstall:
 	pip3 uninstall -y python_package
 
 
-# Time saver
+# Time savers
 rebuildinstall: build uninstall install
+rebuildinstallrun: build uninstall install run
