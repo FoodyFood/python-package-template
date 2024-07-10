@@ -32,9 +32,18 @@ pip install -r requirements.txt
 
 ## Running The Code Directly
 
-You can directly execute the python code by running `python3 ./python_package/main_module.py` in your terminal.
+You can directly execute the python code by running this in your terminal:
 
-Dont forget to run `pip install -r requirements.txt` beforehand.
+```bash
+export PYTHONPATH=$PWD:$PYTHONPATH
+python3 ./python_package_module/main_module.py
+```
+
+The first part of the command sets our PYTHONPATH, this helps python locate our modules.
+
+The second part of the command runs the code.
+
+NOTE: Dont forget to run `pip install -r requirements.txt` before executing the code, this will isntall any dependencies needed.
 
 
 ## Building The WHL File
