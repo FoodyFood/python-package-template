@@ -56,6 +56,21 @@ python3 setup.py sdist bdist_wheel
 ```
 
 
+## Logging/Log Levels
+
+The logger module is a thread safe logger that can have as many named streams as you like.
+
+The default logger is created with the package name as 'name', and we then also create a log stream called 'application' for application type logs.
+
+However, we can have as many as we want, network, filesystem, api, whatever we might want to use to classify different log sources.
+
+The default log level is 'info', but we can set any log level we want using the environment variable: `LOG_LEVEL`
+
+```bash
+export LOG_LEVEL=debug
+```
+
+
 ## Tests (PyTest)
 
 Running `pytest` from the root directory of this repository will run PyTest which will test the main module as well as the sub modules.
