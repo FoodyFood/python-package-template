@@ -16,7 +16,7 @@ def welcome_text() -> str:
             None
 
         Returns:
-            Str: The welcome text
+            str: The welcome text
     '''
 
     return "Welcome to the python_package template"
@@ -27,7 +27,7 @@ def square(some_number: int) -> int:
         This functions takes an input and returns its square.
 
         Args:
-            int: The number to be squared
+            some_number (int): The number to be squared
 
         Returns:
             int: The square of the number
