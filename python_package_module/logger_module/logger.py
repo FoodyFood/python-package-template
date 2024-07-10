@@ -1,9 +1,8 @@
 '''
     This module creates a logger, it's designed as a singleton so that 
-    there will only ever be one logger no matter how many times it's 
-    created.
+    there will only ever be one instance of Logger.
 
-    This logger is also threadsafe for future proofing.
+    This logger is also threadsafe.
 '''
 
 import os
