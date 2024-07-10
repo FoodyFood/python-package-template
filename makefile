@@ -14,7 +14,16 @@ install:
 
 
 run:
-	workspace_initializer
+	python_package
+
+lint:
+	pylint ./python_package_module/
+
+test:
+	pytest
+
+coverage:
+	coverage run -m pytest; coverage report
 
 # Cleanup by uninstalling the WHL
 uninstall:

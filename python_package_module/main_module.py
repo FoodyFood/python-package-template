@@ -4,8 +4,15 @@
 
 import sys
 
+from python_package_module.logger_module.logger import Logger
 from python_package_module.sub_module_1.some_class import SomeClass
 from python_package_module.sub_module_2.some_module import some_function
+
+
+# Create a instance of Logger, then create the log streams we need
+logger: Logger = Logger(name="python_package")
+default_logger = logger.get_logger()
+application_logger = logger.get_logger("application")
 
 
 def welcome_text() -> str:
@@ -49,10 +56,12 @@ def main() -> None:
             None
     '''
 
+    default_logger.info("Python Package Starting")
+
 
     # Using other functions in this module
-    print(welcome_text())
-    print(f"The square of 4 is {square(4)}")
+    default_logger.info(welcome_text())
+    application_logger.info(f"The square of 4 is {square(4)}")
 
 
     # Instanciate the classe from our first submoduule
@@ -60,12 +69,12 @@ def main() -> None:
 
 
     # Use the methods from our sub module 1 SomeClass class
-    print(some_class.some_method_1())
-    print(some_class.some_method_2())
+    application_logger.info(some_class.some_method_1())
+    application_logger.info(some_class.some_method_2())
 
 
     # Use a function from sub module 2
-    print(some_function())
+    application_logger.info(some_function())
 
 
 def signal_handler(sig, frame): # pylint: disable=unused-argument # pragma: no cover
