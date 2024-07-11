@@ -36,7 +36,7 @@ You can directly execute the python code by running this in your terminal:
 
 ```bash
 export PYTHONPATH=$PWD:$PYTHONPATH
-python3 ./python_package_module/main_module.py
+python3 ./python_package/main_module.py
 ```
 
 The first part of the command sets our PYTHONPATH, this helps python locate our modules. 
@@ -46,6 +46,27 @@ NOTE: Once you run this 'export', your terminal will default to running the code
 The second part of the command runs the code.
 
 NOTE: Dont forget to run `pip install -r requirements.txt` before executing the code, this will isntall any dependencies needed.
+
+
+## Args
+
+The python code and package will accept args.
+
+There are 2 args available, version, and number.
+
+To use them as code we can run these commands:
+
+```bash
+python3 ./python_package/main_module.py --version # This prints the version of the installed package
+python3 ./python_package/main_module.py --number 5 # This determines the number to be squared
+```
+
+To use them using the package we can run these commands:
+
+```bash
+python_package --version # This prints the version of the installed package
+python_package --number 5 # This determines the number to be squared
+```
 
 
 ## Building The WHL File
@@ -85,6 +106,6 @@ Coverage is 100% with 2 ignored functions, to run a coverage report run `coverag
 
 ## Linting (PyLint)
 
-Running `pylint ./python_package_module` from the root directory of this repository will run PyLint which will lint the whole package.
+Running `pylint ./python_package` from the root directory of this repository will run PyLint which will lint the whole package.
 
 
