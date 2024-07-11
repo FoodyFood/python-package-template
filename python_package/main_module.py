@@ -82,8 +82,11 @@ def main() -> None:
 
 
     # Print the installed package version for easier debuggin once installed in the wild
-    version = importlib.metadata.version(PACKAGE_NAME)
-    default_logger.info(f"Installed Package Version: {version}")
+    try:
+        version = importlib.metadata.version(PACKAGE_NAME)
+        default_logger.info(f"Installed Package Version: {version}")
+    except importlib.metadata.PackageNotFoundError as e:
+        default_logger.info(f"No package version available for: {e}")
 
 
     # Using other functions in this module
