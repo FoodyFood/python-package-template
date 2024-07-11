@@ -17,12 +17,15 @@ run:
 	python_package
 
 lint:
-	pylint ./python_package_module/
+	export PYTHONPATH=$PWD:$PYTHONPATH
+	pylint ./python_package/
 
 test:
+	export PYTHONPATH=$PWD:$PYTHONPATH
 	pytest
 
 coverage:
+	export PYTHONPATH=$PWD:$PYTHONPATH
 	coverage run -m pytest; coverage report
 
 # Cleanup by uninstalling the WHL

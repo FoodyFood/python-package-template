@@ -2,7 +2,7 @@
     This is another submodule, in this case it's a module with 1 function.
 '''
 
-from python_package_module.logger_module.logger import Logger
+from python_package.logger_module.logger import Logger
 
 
 # Get the Logger instance, then get the log streams we need in this module

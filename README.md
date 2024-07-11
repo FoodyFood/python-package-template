@@ -39,7 +39,9 @@ export PYTHONPATH=$PWD:$PYTHONPATH
 python3 ./python_package_module/main_module.py
 ```
 
-The first part of the command sets our PYTHONPATH, this helps python locate our modules.
+The first part of the command sets our PYTHONPATH, this helps python locate our modules. 
+
+NOTE: Once you run this 'export', your terminal will default to running the code rather than the installed package, if you want to install and test the package, you should use a fresh terminal.
 
 The second part of the command runs the code.
 

@@ -3,10 +3,11 @@
 '''
 
 import sys
+import importlib.metadata
 
-from python_package_module.logger_module.logger import Logger
-from python_package_module.sub_module_1.some_class import SomeClass
-from python_package_module.sub_module_2.some_module import some_function
+from python_package.logger_module.logger import Logger
+from python_package.sub_module_1.some_class import SomeClass
+from python_package.sub_module_2.some_module import some_function
 
 
 # Create a instance of Logger, then create the log streams we need
@@ -56,7 +57,8 @@ def main() -> None:
             None
     '''
 
-    default_logger.info("Python Package Starting")
+    version = importlib.metadata.version("python_package")
+    default_logger.info(f"Python Package Starting - Installed Package Version {version}")
 
 
     # Using other functions in this module

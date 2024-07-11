@@ -2,7 +2,7 @@
     This tests functions in the sub_module_2 module
 '''
 
-from python_package_module.sub_module_2.some_module import some_function
+from python_package.sub_module_2.some_module import some_function
 
 
 def test_some_function() -> None:
