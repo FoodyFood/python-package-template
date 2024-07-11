@@ -4,14 +4,19 @@
 
 import sys
 import importlib.metadata
+import argparse
 
 from python_package.logger_module.logger import Logger
 from python_package.sub_module_1.some_class import SomeClass
 from python_package.sub_module_2.some_module import some_function
 
 
+# Constants
+PACKAGE_NAME: str = "python_package"
+
+
 # Create a instance of Logger, then create the log streams we need
-logger: Logger = Logger(name="python_package")
+logger: Logger = Logger(name=PACKAGE_NAME)
 default_logger = logger.get_logger()
 application_logger = logger.get_logger("application")
 
@@ -57,13 +62,31 @@ def main() -> None:
             None
     '''
 
-    version = importlib.metadata.version("python_package")
-    default_logger.info(f"Python Package Starting - Installed Package Version {version}")
+    # Create an arg parser so we can pass arguments to the package
+    parser = argparse.ArgumentParser(description=PACKAGE_NAME)
+
+
+    # Add any arguments we want
+    parser.add_argument('--version', action='store_true', help='Print the version of the package')
+    parser.add_argument('--number', type=int, help='Specify a number to be squared', default=4)
+    args = parser.parse_args()
+
+
+    # Use the args that were parsed to determine actions, or to store any variables that were passed
+    if args.version:
+        version = importlib.metadata.version(PACKAGE_NAME)
+        print(f"Version: {version}")
+        return
+
+
+    # Print the installed package version for easier debuggin once installed in the wild
+    version = importlib.metadata.version(PACKAGE_NAME)
+    default_logger.info(f"Installed Package Version: {version}")
 
 
     # Using other functions in this module
     default_logger.info(welcome_text())
-    application_logger.info(f"The square of 4 is {square(4)}")
+    application_logger.info(f"The square of {args.number} is {square(args.number)}")
 
 
     # Instanciate the classe from our first submoduule
