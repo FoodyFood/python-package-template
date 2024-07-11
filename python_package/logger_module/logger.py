@@ -54,9 +54,10 @@ class Logger():
                 None
         '''
 
+        if self._initialized:
+            return
+
         with self._init_lock:
-            if self._initialized:
-                return
             self._initialized = True
 
             self.default_name: str = name

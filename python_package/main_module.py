@@ -7,18 +7,20 @@ import importlib.metadata
 import argparse
 
 from python_package.logger_module.logger import Logger
-from python_package.sub_module_1.some_class import SomeClass
-from python_package.sub_module_2.some_module import some_function
-
 
 # Constants
 PACKAGE_NAME: str = "python_package"
 
-
 # Create a instance of Logger, then create the log streams we need
-logger: Logger = Logger(name=PACKAGE_NAME)
+# It is generally correct and a common practice to instantiate a singleton
+# like this Logger instance before importing submodules that depend on it
+logger = Logger(name=PACKAGE_NAME, log_file=None, console=True)
 default_logger = logger.get_logger()
 application_logger = logger.get_logger("application")
+
+# Now we import submodules that depend on the Logger being instanciated
+from python_package.sub_module_1.some_class import SomeClass # pylint: disable=wrong-import-position
+from python_package.sub_module_2.some_module import some_function # pylint: disable=wrong-import-position
 
 
 def welcome_text() -> str:
