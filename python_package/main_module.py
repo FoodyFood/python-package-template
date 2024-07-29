@@ -14,7 +14,7 @@ from python_package.sub_module_2.some_module import some_function
 # Constants
 PACKAGE_NAME: str = "python_package"
 
-# Get the logger instances used in main
+# Get the loggers used in main
 logger = Logger()
 default_logger = logger.get_logger()
 application_logger = logger.get_logger("application")
