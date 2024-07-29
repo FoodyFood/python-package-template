@@ -83,7 +83,7 @@ class Logger():
                 name (str): Name of the logger, could be aplication name, network, filesysem, etc
 
             Returns:
-                logger: A handle to the named logger
+                Logger: A handle to the named logger
         '''
 
         if name in self.loggers:
@@ -91,9 +91,9 @@ class Logger():
 
         while self._initialize_logger_lock:
 
-            logger = logging.getLogger(name)
+            named_logger = logging.getLogger(name)
 
-            logger.setLevel(self.level)
+            named_logger.setLevel(self.level)
 
             formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
@@ -101,17 +101,17 @@ class Logger():
                 file_handler = logging.FileHandler(self.log_file)
                 file_handler.setLevel(self.level)
                 file_handler.setFormatter(formatter)
-                logger.addHandler(file_handler)
+                named_logger.addHandler(file_handler)
 
             if self.console:
                 console_handler = logging.StreamHandler()
                 console_handler.setLevel(self.level)
                 console_handler.setFormatter(formatter)
-                logger.addHandler(console_handler)
+                named_logger.addHandler(console_handler)
 
-            self.loggers[name] = logger
+            self.loggers[name] = named_logger
 
-            return logger
+            return named_logger
 
         # Fallback is to return the default logger if while loop condition is false
         return self.loggers[self.default_name]
@@ -125,7 +125,7 @@ class Logger():
                 name: str 
 
             Returns:
-                logger: A handle to the named logger
+                Logger: A handle to the named logger
         '''
 
         if name is None:
@@ -135,3 +135,8 @@ class Logger():
             self._initialize_logger(name)
 
         return self.loggers[name]
+
+
+# Instanciate the logger in the module, such that when we import it in other modules they get the
+# already created instance with the configuration we dersire
+logger: Logger = Logger(name="default", log_file=None, console=True)

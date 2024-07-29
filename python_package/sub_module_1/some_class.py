@@ -6,7 +6,7 @@ from python_package.logger_module.logger import Logger
 
 
 # Get the Logger instance, then get the log streams we need in this module
-logger: Logger = Logger(name="python_package")
+logger: Logger = Logger()
 application_logger = logger.get_logger("application")
 
 

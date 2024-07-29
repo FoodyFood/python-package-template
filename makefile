@@ -14,18 +14,22 @@ install:
 
 
 run:
+	export PYTHONPATH="$(PWD):$$PYTHONPATH"; \
+	python3 python_package/main_module.py
+
+run-package:
 	python_package
 
 lint:
-	export PYTHONPATH=$PWD:$PYTHONPATH
+	export PYTHONPATH="$(PWD):$$PYTHONPATH"; \
 	pylint ./python_package/
 
 test:
-	export PYTHONPATH=$PWD:$PYTHONPATH
+	export PYTHONPATH="$(PWD):$$PYTHONPATH"; \
 	pytest
 
 coverage:
-	export PYTHONPATH=$PWD:$PYTHONPATH
+	export PYTHONPATH="$(PWD):$$PYTHONPATH"; \
 	coverage run -m pytest; coverage report
 
 # Cleanup by uninstalling the WHL

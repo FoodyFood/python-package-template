@@ -83,7 +83,7 @@ python3 setup.py sdist bdist_wheel
 
 The logger module is a thread safe logger that can have as many named streams as you like.
 
-The default logger is created with the package name as 'name', and we then also create a log stream called 'application' for application type logs.
+The default logger is created with the name 'default', and we then also create a log stream called 'application' for application type logs.
 
 However, we can have as many as we want, network, filesystem, api, whatever we might want to use to classify different log sources.
 
