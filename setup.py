@@ -1,6 +1,6 @@
-'''
+"""
     This is the setup.py for a sample package.
-'''
+"""
 
 from setuptools import setup, find_packages
 

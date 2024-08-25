@@ -1,9 +1,9 @@
-'''
-    This module creates a logger, it's designed as a singleton so that 
-    there will only ever be one instance of Logger.
+"""
+This module creates a logger, it's designed as a singleton so that 
+there will only ever be one instance of Logger.
 
-    This logger is also threadsafe.
-'''
+This logger is also threadsafe.
+"""
 
 import os
 import logging
@@ -13,11 +13,11 @@ from threading import Lock
 
 
 class Logger():
-    '''
-        This is a logger in the form of a singleton, the first initialization will
-        instanciate the logger. Future instanciations will return the handle of the
-        original instance.
-    '''
+    """
+    This is a logger in the form of a singleton, the first initialization will
+    instanciate the logger. Future instanciations will return the handle of the
+    original instance.
+    """
 
     _instance = None
     _initialized: bool = False
@@ -27,10 +27,10 @@ class Logger():
 
 
     def __new__(cls, *args, **kwargs):
-        '''
-            Thread safe __new__ method that ensures creation of only 1 instance
-            of the Logger class.
-        '''
+        """
+        Thread safe __new__ method that ensures creation of only 1 instance
+        of the Logger class.
+        """
 
         with cls._instance_lock:
             if cls._instance is None:
@@ -40,19 +40,19 @@ class Logger():
 
 
     def __init__(self, name='logger', log_file=None, level=logging.INFO, console=True):
-        '''
-            Initializes the Logger class with the settings that will be used for
-            all loggers that are greated under it.
+        """
+        Initializes the Logger class with the settings that will be used for
+        all loggers that are greated under it.
 
-            Args:
-                name (str): The name for the default logger, could be your application name
-                log_file (str): The filename for your log file
-                level (logging.LEVEL): The log level, this is overridden by env var LOG_LEVEL
-                console (bool): To log to console, Default=True
+        Args:
+            name (str): The name for the default logger, could be your application name
+            log_file (str): The filename for your log file
+            level (logging.LEVEL): The log level, this is overridden by env var LOG_LEVEL
+            console (bool): To log to console, Default=True
 
-            Returns:
-                None
-        '''
+        Returns:
+            None
+        """
 
         if self._initialized:
             return
@@ -76,15 +76,15 @@ class Logger():
 
 
     def _initialize_logger(self, name):
-        '''
-            Creates a named logger
+        """
+        Creates a named logger
 
-            Args:
-                name (str): Name of the logger, could be aplication name, network, filesysem, etc
+        Args:
+            name (str): Name of the logger, could be aplication name, network, filesysem, etc
 
-            Returns:
-                Logger: A handle to the named logger
-        '''
+        Returns:
+            Logger: A handle to the named logger
+        """
 
         if name in self.loggers:
             return self.loggers[name]
@@ -118,15 +118,15 @@ class Logger():
 
 
     def get_logger(self, name=None):
-        '''
-            Returns the handle of the named logger.
+        """
+        Returns the handle of the named logger.
 
-            Args:
-                name: str 
+        Args:
+            name: str 
 
-            Returns:
-                Logger: A handle to the named logger
-        '''
+        Returns:
+            Logger: A handle to the named logger
+        """
 
         if name is None:
             name = self.default_name

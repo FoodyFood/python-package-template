@@ -1,6 +1,6 @@
-'''
-    This is another submodule, in this case it's a module with 1 function.
-'''
+"""
+This is another submodule, in this case it's a module with 1 function.
+"""
 
 from python_package.logger_module.logger import Logger
 
@@ -11,15 +11,15 @@ application_logger = logger.get_logger("application")
 
 
 def some_function() -> str:
-    '''
-        This is some function in sub_module_2 
-        
-        Args:
-            None
+    """
+    This is some function in sub_module_2 
+    
+    Args:
+        None
 
-        Returns:
-            str
-    '''
+    Returns:
+        str
+    """
 
     application_logger.debug("Running some_function")
 
