@@ -89,7 +89,7 @@ class Logger():
         if name in self.loggers:
             return self.loggers[name]
 
-        while self._initialize_logger_lock:
+        with self._initialize_logger_lock:
 
             named_logger = logging.getLogger(name)
 
