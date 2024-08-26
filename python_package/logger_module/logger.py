@@ -23,6 +23,7 @@ class Logger():
     _initialized: bool = False
     _instance_lock: Lock = Lock()
     _init_lock: Lock = Lock()
+    _configure_logger_lock: Lock = Lock()
     _initialize_logger_lock: Lock = Lock()
 
 
@@ -39,16 +40,20 @@ class Logger():
         return cls._instance
 
 
-    def __init__(self, name='logger', log_file=None, level=logging.INFO, console=True):
+    def __init__(self):
         """
-        Initializes the Logger class with the settings that will be used for
-        all loggers that are greated under it.
+        Initializes the Logger class with a default configuration. Can be overridden
+        by calling Logger.configure().
+
+        Defaults:
+            Loging Level is determined by LOG_LEVEL environment variable, or set to INFO if 
+            there is no environment variable set.
+            There will be no log file created by default.
+            Logs will print to consle by default.
+            Logger name will be 'default'.
 
         Args:
-            name (str): The name for the default logger, could be your application name
-            log_file (str): The filename for your log file
-            level (logging.LEVEL): The log level, this is overridden by env var LOG_LEVEL
-            console (bool): To log to console, Default=True
+            None
 
         Returns:
             None
@@ -60,6 +65,37 @@ class Logger():
         with self._init_lock:
             self._initialized = True
 
+            self.default_name: str = "default"
+            self.log_file: Optional[str] = None
+            self.console: bool = True
+            self.loggers: dict = {}
+
+            # Log level is determined foremost by the environment variable LOG_LEVEL
+            if "LOG_LEVEL" in os.environ:
+                self.level = getattr(logging, str(os.getenv("LOG_LEVEL")).strip().upper())
+            else:
+                self.level = logging.INFO
+
+
+    def configure(self, name='default', log_file=None, level=logging.INFO, console=True):
+        """
+        Optional to call, will overwrite the default configuration of the logger. Should
+        only be called once, should be run before get_logger() is called for any loggers.
+
+        Be aware that the log level will be overridden by an environment variable called
+        LOG_LEVEL if it exists in the environment.
+
+        Args:
+            name (str): The name for the default logger, could be your application name
+            log_file (str): The filename for your log file
+            level (logging.LEVEL): The log level, this is overridden by env var LOG_LEVEL
+            console (bool): To log to console, Default=True
+
+        Returns:
+            None
+        """
+
+        with self._configure_logger_lock:
             self.default_name: str = name
             self.log_file: Optional[str] = log_file
             self.console: bool = console
@@ -71,13 +107,10 @@ class Logger():
             else:
                 self.level = level
 
-            # Initialize the default logger
-            self._initialize_logger(name)
-
 
     def _initialize_logger(self, name):
         """
-        Creates a named logger
+        Creates a named logger and adds it to the list of loggers
 
         Args:
             name (str): Name of the logger, could be aplication name, network, filesysem, etc
@@ -137,6 +170,6 @@ class Logger():
         return self.loggers[name]
 
 
-# Instanciate the logger in the module, such that when we import it in other modules they get the
-# already created instance with the configuration we dersire
-logger: Logger = Logger(name="default", log_file=None, console=True)
+# Instanciate the logger in the module, such that when we import it in other
+# modules they get the same instance
+logger: Logger = Logger()
