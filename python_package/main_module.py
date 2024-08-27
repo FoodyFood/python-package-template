@@ -16,6 +16,7 @@ PACKAGE_NAME: str = "python_package"
 
 # Get the loggers used in main
 logger = Logger()
+logger.configure()
 default_logger = logger.get_logger()
 application_logger = logger.get_logger("application")
 
@@ -91,7 +92,7 @@ def main() -> None:
     application_logger.info(f"The square of {args.number} is {square(args.number)}")
 
 
-    # Instanciate the classe from our first submoduule
+    # Instanciate the classe from our first submodule
     some_class: SomeClass = SomeClass()
 
 

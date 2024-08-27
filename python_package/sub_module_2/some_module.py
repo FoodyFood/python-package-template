@@ -5,11 +5,6 @@ This is another submodule, in this case it's a module with 1 function.
 from python_package.logger_module.logger import Logger
 
 
-# Get Logger instance, then get the log streams we need in this module
-logger: Logger = Logger()
-application_logger = logger.get_logger("application")
-
-
 def some_function() -> str:
     """
     This is some function in sub_module_2 
@@ -20,6 +15,9 @@ def some_function() -> str:
     Returns:
         str
     """
+
+    logger: Logger = Logger()
+    application_logger = logger.get_logger("application")
 
     application_logger.debug("Running some_function")
 

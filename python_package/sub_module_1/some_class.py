@@ -5,15 +5,18 @@ This is a submodule, in this case it's a class with 1 method.
 from python_package.logger_module.logger import Logger
 
 
-# Get the Logger instance, then get the log streams we need in this module
-logger: Logger = Logger()
-application_logger = logger.get_logger("application")
-
-
 class SomeClass:
     """
     This is a class in the sub module.
     """
+
+    application_logger: Logger
+
+    def __init__(self):
+        # Get logger is run as part of instantiation, instead of when the submodule is imported
+        logger: Logger = Logger()
+        self.application_logger = logger.get_logger("application")
+
 
     def some_method_1(self) -> str:
         """
@@ -26,7 +29,7 @@ class SomeClass:
             str
         """
 
-        application_logger.debug("Running some_method_1")
+        self.application_logger.debug("Running some_method_1")
 
         return "The some_method_1 Method Says Hello"
 
@@ -42,6 +45,6 @@ class SomeClass:
             str
         """
 
-        application_logger.debug("Running some_method_2")
+        self.application_logger.debug("Running some_method_2")
 
         return "The some_method_2 Method Says Hello"
