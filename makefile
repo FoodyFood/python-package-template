@@ -39,4 +39,4 @@ uninstall:
 
 # Time savers
 rebuildinstall: build uninstall install
-rebuildinstallrun: build uninstall install run
+rebuildinstallrun: build uninstall install run-package
