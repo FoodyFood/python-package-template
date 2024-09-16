@@ -52,7 +52,7 @@ def square(some_number: int) -> int:
 def main() -> None:
     """
     When main is executed, we will instanciate a class from
-    sub module 1 and call a method from it. Then call a method
+    sub module 1 and call a method from it. Then call a function
     from sub module 2.
 
     Args:
