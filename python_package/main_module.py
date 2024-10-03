@@ -1,6 +1,6 @@
-"""
+'''
 This is a sample python package.
-"""
+'''
 
 import sys
 import importlib.metadata
@@ -22,7 +22,7 @@ application_logger = logger.get_logger("application")
 
 
 def welcome_text() -> str:
-    """
+    '''
     Returns welcome text.
 
     Args:
@@ -30,13 +30,13 @@ def welcome_text() -> str:
 
     Returns:
         str: The welcome text
-    """
+    '''
 
     return "Welcome to the python_package template"
 
 
 def square(some_number: int) -> int:
-    """
+    '''
     This functions takes an input and returns its square.
 
     Args:
@@ -44,13 +44,13 @@ def square(some_number: int) -> int:
 
     Returns:
         int: The square of the number
-    """
+    '''
 
     return some_number * some_number
 
 
 def main() -> None:
-    """
+    '''
     When main is executed, we will instanciate a class from
     sub module 1 and call a method from it. Then call a method
     from sub module 2.
@@ -60,7 +60,7 @@ def main() -> None:
 
     Returns:
         None
-    """
+    '''
 
     # Create an arg parser so we can pass arguments to the package
     parser = argparse.ArgumentParser(description=PACKAGE_NAME)
@@ -106,9 +106,9 @@ def main() -> None:
 
 
 def signal_handler(sig, frame): # pylint: disable=unused-argument # pragma: no cover
-    """
+    '''
     If a user presses CTRL+C, this will catch it and exit gracefully without an error.
-    """
+    '''
 
     sys.exit(0)
 

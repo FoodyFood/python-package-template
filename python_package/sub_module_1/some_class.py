@@ -1,14 +1,14 @@
-"""
+'''
 This is a submodule, in this case it's a class with 1 method.
-"""
+'''
 
 from python_package.logger_module.logger import Logger
 
 
 class SomeClass:
-    """
+    '''
     This is a class in the sub module.
-    """
+    '''
 
     application_logger: Logger
 
@@ -19,7 +19,7 @@ class SomeClass:
 
 
     def some_method_1(self) -> str:
-        """
+        '''
         This is a method in the SomeClass class
         
         Args:
@@ -27,7 +27,7 @@ class SomeClass:
 
         Returns:
             str
-        """
+        '''
 
         self.application_logger.debug("Running some_method_1")
 
@@ -35,7 +35,7 @@ class SomeClass:
 
 
     def some_method_2(self) -> str:
-        """
+        '''
         This is a method in the SomeClass class
         
         Args:
@@ -43,7 +43,7 @@ class SomeClass:
 
         Returns:
             str
-        """
+        '''
 
         self.application_logger.debug("Running some_method_2")
 
