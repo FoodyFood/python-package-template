@@ -16,7 +16,6 @@ PACKAGE_NAME: str = "python_package"
 
 # Get the loggers used in main
 logger = Logger()
-logger.configure()
 default_logger = logger.get_logger()
 application_logger = logger.get_logger("application")
 
@@ -51,7 +50,7 @@ def square(some_number: int) -> int:
 
 def main() -> None:
     '''
-    When main is executed, we will instanciate a class from
+    When main is executed, we will instantiate a class from
     sub module 1 and call a method from it. Then call a function
     from sub module 2.
 
@@ -79,7 +78,7 @@ def main() -> None:
         return
 
 
-    # Print the installed package version for easier debuggin once installed in the wild
+    # Print the installed package version for easier debugging once installed in the wild
     try:
         version = importlib.metadata.version(PACKAGE_NAME)
         default_logger.info(f"Installed Package Version: {version}")
@@ -88,11 +87,11 @@ def main() -> None:
 
 
     # Using other functions in this module
-    default_logger.info(welcome_text())
+    application_logger.info(welcome_text())
     application_logger.info(f"The square of {args.number} is {square(args.number)}")
 
 
-    # Instanciate the classe from our first submodule
+    # Instantiate the class from our first submodule
     some_class: SomeClass = SomeClass()
 
 

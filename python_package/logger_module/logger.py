@@ -170,6 +170,7 @@ class Logger():
         return self.loggers[name]
 
 
-# Instanciate the logger in the module, such that when we import it in other
+# Instantiate the logger in the module, such that when we import it in other
 # modules they get the same instance
 logger: Logger = Logger()
+logger.configure()
