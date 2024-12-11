@@ -1,9 +1,9 @@
-'''
+"""
 This module creates a logger, it's designed as a singleton so that 
 there will only ever be one instance of Logger.
 
 This logger is also threadsafe.
-'''
+"""
 
 import os
 import logging
@@ -13,11 +13,11 @@ from threading import Lock
 
 
 class Logger():
-    '''
+    """
     This is a logger in the form of a singleton, the first initialization will
     instanciate the logger. Future instanciations will return the handle of the
     original instance.
-    '''
+    """
 
     _instance = None
     _initialized: bool = False
@@ -28,10 +28,10 @@ class Logger():
 
 
     def __new__(cls, *args, **kwargs):
-        '''
+        """
         Thread safe __new__ method that ensures creation of only 1 instance
         of the Logger class.
-        '''
+        """
 
         with cls._instance_lock:
             if cls._instance is None:
@@ -41,7 +41,7 @@ class Logger():
 
 
     def __init__(self):
-        '''
+        """
         Initializes the Logger class with a default configuration. Can be overridden
         by calling Logger.configure().
 
@@ -57,7 +57,7 @@ class Logger():
 
         Returns:
             None
-        '''
+        """
 
         if self._initialized:
             return
@@ -78,7 +78,7 @@ class Logger():
 
 
     def configure(self, name='default', log_file=None, level=logging.INFO, console=True):
-        '''
+        """
         Optional to call, will overwrite the default configuration of the logger. Should
         only be called once, should be run before get_logger() is called for any loggers.
 
@@ -93,7 +93,7 @@ class Logger():
 
         Returns:
             None
-        '''
+        """
 
         with self._configure_logger_lock:
             self.default_name: str = name
@@ -109,7 +109,7 @@ class Logger():
 
 
     def _initialize_logger(self, name):
-        '''
+        """
         Creates a named logger and adds it to the list of loggers
 
         Args:
@@ -117,7 +117,7 @@ class Logger():
 
         Returns:
             Logger: A handle to the named logger
-        '''
+        """
 
         if name in self.loggers:
             return self.loggers[name]
@@ -151,7 +151,7 @@ class Logger():
 
 
     def get_logger(self, name=None):
-        '''
+        """
         Returns the handle of the named logger.
 
         Args:
@@ -159,7 +159,7 @@ class Logger():
 
         Returns:
             Logger: A handle to the named logger
-        '''
+        """
 
         if name is None:
             name = self.default_name

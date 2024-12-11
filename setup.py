@@ -1,6 +1,6 @@
-'''
-    This is the setup.py for a sample package.
-'''
+"""
+This is the setup.py for a sample package.
+"""
 
 from setuptools import setup, find_packages
 
@@ -8,15 +8,15 @@ from setuptools import setup, find_packages
 #     long_description = fh.read()
 
 def read_version() -> str:
-    '''
-        Reads the version that will be applied to the python whl from the VERSION file
+    """
+    Reads the version that will be applied to the python whl from the VERSION file
 
-        Args:
-            None
+    Args:
+        None
 
-        Returns:
-            str
-    '''
+    Returns:
+        str
+    """
 
     with open("VERSION", "r", encoding="utf-8") as version_file:
         return version_file.read().strip()

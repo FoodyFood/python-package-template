@@ -1,6 +1,6 @@
-'''
+"""
 This is another submodule, in this case it's a module with 1 function.
-'''
+"""
 
 from python_package.logger_module.logger import Logger
 
@@ -11,7 +11,7 @@ some_module_logger = logger.get_logger("some_module")
 
 
 def some_function() -> str:
-    '''
+    """
     This is some function in sub_module_2 
     
     Args:
@@ -19,7 +19,7 @@ def some_function() -> str:
 
     Returns:
         str
-    '''
+    """
 
     some_module_logger.debug("Running some_function")
 
