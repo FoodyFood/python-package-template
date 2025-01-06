@@ -8,6 +8,15 @@ from python_package.logger_module.logger import Logger
 class SomeClass:
     """
     This is a class in the sub module.
+
+    Attributes: 
+        some_class_logger (Logger): Manages logging
+
+    Methods:
+        some_method_1(None) -> None:
+            Example method 1
+        some_methos_2(None) -> None:
+            Example method 2
     """
 
     some_class_logger: Logger
